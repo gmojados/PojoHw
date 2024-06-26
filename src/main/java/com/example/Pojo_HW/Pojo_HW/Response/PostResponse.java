@@ -22,13 +22,13 @@ public class PostResponse {
             Body body = new Body();
             body.setData(createdPost);
             body.setCode(HttpStatus.CREATED.value());
-            body.setMessage("User created");
+            body.setMessage("Post created");
 
             return ResponseEntity.ok(body);
         } catch (Exception exception) {
             Body body = new Body();
             body.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            body.setMessage("error fetching creating User");
+            body.setMessage("error fetching creating Post");
 
             return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
 

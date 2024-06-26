@@ -17,18 +17,18 @@ public class CommentService {
     private final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     public Comment createComment(Comment comment) {
-        logger.info("Post Successfully Created");
+        logger.info("Comment Successfully Created");
         return commentRepository.save(comment);
     }
 
     public Comment getCommentById(Long commentId) {
         if (commentId == null) {
-            throw new IllegalArgumentException("Post ID cannot be null");
+            throw new IllegalArgumentException("Comment ID cannot be null");
         }
 
         Comment comment = commentRepository.findCommentById(commentId);
         if (comment == null) {
-            throw new UserNotFoundException("Post with id " + commentId + " not found");
+            throw new UserNotFoundException("Comment with id " + commentId + " not found");
         }
 
         return comment;
@@ -36,16 +36,16 @@ public class CommentService {
 
 
     public Iterable<Comment> getAllComments (){
-        logger.info("Retrieved All Posts");
+        logger.info("Retrieved All comments");
         Iterable<Comment> comments= commentRepository.findAll();
         return comments;
     }
 
     public void deleteComment(Long postId){
         if (postId == null) {
-            logger.error("Post not found");
+            logger.error("Comment not found");
         }
-        logger.info("Post has Successfully been Deleted");
+        logger.info("Comment has Successfully been Deleted");
         commentRepository.deleteById(postId);
     }
     @Transactional
