@@ -57,10 +57,6 @@ public class PostService {
     public Post updatePost(Post post, Long postId) {
         Post existingPost = postRepository.findPostById(postId);
 
-        if (existingPost == null) {
-            throw new ResourceNotFoundException("Post not found with id: " + postId);
-        }
-
         existingPost.setContent(post.getContent());
         existingPost.setTitle(post.getTitle());
 

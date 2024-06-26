@@ -41,12 +41,12 @@ public class CommentService {
         return comments;
     }
 
-    public void deleteComment(Long postId){
-        if (postId == null) {
+    public void deleteComment(Long commentId){
+        if (commentId == null) {
             logger.error("Comment not found");
         }
         logger.info("Comment has Successfully been Deleted");
-        commentRepository.deleteById(postId);
+        commentRepository.deleteById(commentId);
     }
     @Transactional
     public Comment updateComment(Comment comment, Long commentId) {
